@@ -27,6 +27,7 @@ env:
   # uncomment to run the tests sequentially
   #SEQUENTIAL_ENV: SEQUENTIAL_TEST_RUN
 
+jobs:
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
