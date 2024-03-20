@@ -42,8 +42,9 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           dotnet_format: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           continue_on_error: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          check_name: ${linter} run
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
