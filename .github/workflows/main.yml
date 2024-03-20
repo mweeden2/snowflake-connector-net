@@ -43,6 +43,7 @@ jobs:
         with:
           dotnet_format: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          continue_on_error: false
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
