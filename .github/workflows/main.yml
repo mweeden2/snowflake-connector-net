@@ -42,7 +42,7 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           dotnet_format: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
