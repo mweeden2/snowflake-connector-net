@@ -107,10 +107,9 @@ jobs:
         with:
           python-version: '3.x'
       - name: Run Linter
-        uses: super-linter/super-linter@v6.3.0  
+        uses: super-linter/super-linter@v5.7.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Setup dotnet-coverage
         run: dotnet tool install --global dotnet-coverage --version 17.8.4
       - name: Decrypt Parameters
