@@ -28,6 +28,21 @@ env:
   #SEQUENTIAL_ENV: SEQUENTIAL_TEST_RUN
 
 jobs:
+  run-linter:
+    name: Run linter
+    runs-on: windows-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "6.0.x"
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          dotnet_format: true
+          token: ${{ secrets.GITHUB_TOKEN }}
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
@@ -106,10 +121,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - name: Run Linter
-        uses: super-linter/super-linter@v5.7.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup dotnet-coverage
         run: dotnet tool install --global dotnet-coverage --version 17.8.4
       - name: Decrypt Parameters
