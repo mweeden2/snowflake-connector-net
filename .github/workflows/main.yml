@@ -51,7 +51,7 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           dotnet_format: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup dotnet-coverage
         run: dotnet tool install --global dotnet-coverage --version 17.8.4
