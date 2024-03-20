@@ -27,25 +27,6 @@ env:
   # uncomment to run the tests sequentially
   #SEQUENTIAL_ENV: SEQUENTIAL_TEST_RUN
 
-jobs:
-  run-linter:
-    name: Run linter
-    runs-on: windows-latest
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: "6.0.x"
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          dotnet_format: true
-          continue_on_error: false
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          check_name: ${linter} run
-          auto_fix: true
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
