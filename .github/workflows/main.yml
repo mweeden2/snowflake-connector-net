@@ -45,6 +45,7 @@ jobs:
           continue_on_error: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_name: ${linter} run
+          auto_fix: true
   test-windows:
     name: Tests on Windows
     runs-on: windows-latest
