@@ -37,7 +37,8 @@ jobs:
         dotnet: ['net6.0', 'net472', 'net471']
         cloud_env: ['AZURE', 'GCP', 'AWS']
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Setup Dotnet
         uses: actions/setup-dotnet@v3
         with:
@@ -47,11 +48,10 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - name: Run Linters
-        uses: wearerequired/lint-action@v2
-        with:
-          dotnet_format: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Linter
+        uses: super-linter/super-linter@v6.3.0  
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup dotnet-coverage
         run: dotnet tool install --global dotnet-coverage --version 17.8.4
