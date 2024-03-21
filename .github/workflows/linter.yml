@@ -45,7 +45,6 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         with:
           dotnet_format: true
-          dotnet_format_args: "--include ${{ALL_CHANGED_FILES}}"
           continue_on_error: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_name: ${linter} run
