@@ -41,6 +41,8 @@ jobs:
         uses: tj-actions/changed-files@v43
       - name: Run linters
         uses: wearerequired/lint-action@v2
+        env: 
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         with:
           dotnet_format: true
           dotnet_format_args: "--include ${{ALL_CHANGED_FILES}}"
