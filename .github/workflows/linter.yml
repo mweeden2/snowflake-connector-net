@@ -36,13 +36,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: "6.0.x"
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v43
       - name: Run linters
         uses: wearerequired/lint-action@v2
-        env: 
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         with:
           dotnet_format: true
           continue_on_error: false
