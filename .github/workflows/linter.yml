@@ -34,13 +34,10 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: "6.0.x"
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v43
       - name: Run linters
         uses: wearerequired/lint-action@v2
         env: 
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ALL_CHANGED_FILES: ${{git diff --name-only master}}
         with:
           dotnet_format_args: "--include ${{ALL_CHANGED_FILES}}"
           dotnet_format: true
