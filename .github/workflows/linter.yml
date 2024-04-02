@@ -36,10 +36,7 @@ jobs:
           dotnet-version: "6.0.x"
       - name: Run linters
         uses: wearerequired/lint-action@v2
-        env: 
-          ALL_CHANGED_FILES: ${{git diff --name-only master}}
         with:
-          dotnet_format_args: "--include ${{ALL_CHANGED_FILES}}"
           dotnet_format: true
           continue_on_error: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
