@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Snowflake.Data.Core;
 using System.Text;
-using Snowflake.Data.Core;
+using System;
 
 namespace Snowflake.Data.Core
 {
