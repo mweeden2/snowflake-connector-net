@@ -17,7 +17,7 @@ namespace Snowflake.Data.Tests.Util
         
         public TestRepeater<T> SkipLargest<TKey>(Func<T, TKey> keySelector)
         {
-            var resultsWithoutLargest = _result.OrderBy(keySelector).SkipLast(1).ToList();
+            var resultsWithoutLargest = _result.OrderByDescending(keySelector).Skip(1).ToList();
             return new TestRepeater<T>(resultsWithoutLargest);
         }
         
